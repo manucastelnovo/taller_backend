@@ -1,4 +1,5 @@
 # Taller de Flask SQLAlchemy & WTForms
+![Flask](https://miro.medium.com/max/1198/1*80vkyHOABsohPadzQjfEbQ.png)
 
 1. Creamos un entorno virtual con `python3 -m venv venv`
 
