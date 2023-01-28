@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,url_for,redirect
 from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
+# from wtforms.validators import InputRequired, Length, ValidationError
 
 
 
@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'CierrateSesamos'
 db=SQLAlchemy(app)
-db.init_app(app)
+# db.init_app(app)
 # db.create_all()
 
 
