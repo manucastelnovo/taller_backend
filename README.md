@@ -8,7 +8,7 @@
 ## Instalamos las dependencias!
 
     -Instalamos flask
-    `pip install flask`
+        -`pip install flask`
     -Luego el wtforms `pip install flask_wtf`
     -Por ultimo `pip install flask_sqlalchemy`
 
