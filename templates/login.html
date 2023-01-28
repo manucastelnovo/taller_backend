@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-screen h-screen flex justify-center items-center">
+      <form
+        class="p-10 bg-[#D8EFFF] drop-shadow-lg space-y-5 rounded"
+        action="/login"
+        method="POST"
+      >
+        <h1
+          class="text-[#0E3D95] text-center text-3xl font-bold font-serif text-border-black"
+        >
+          Login
+        </h1>
+        <div class="text-[#0E3D95] flex flex-col space-y-2">
+          <label class="text-sm font-bold" for="number">Número de Cédula</label>
+          {{form.email(class="w-96 px-3 py-2 rounded-md border
+          border-slate-400")}}
+          <!-- <input
+                    class="w-96 px-3 py-2 rounded-md border border-slate-400"
+                    type="correo electronico"
+                    placeholder="Introduzca su número de cédula"
+                    name="number"
+                    id="number" -->
+          <!-- /> -->
+        </div>
+        <div class="flex flex-col space-y-2">
+          <label class="text-[#0E3D95] text-sm font-bold" for="password"
+            >Contraseña</label
+          >
+          {{form.password}}
+          <!-- <input
+                    class="w-96 px-3 py-2 rounded-md border border-slate-400"
+                    type="Contraseña"
+                    placeholder="Introduzca su contraseña"
+                    name="Contraseña"
+                    id="Contraseña"
+                  /> -->
+          {{form.hidden_tag()}}
+        </div>
+
+        <div>
+          <input type="checkbox" name="remember" id="remember" />
+          <label class="text-[#0E3D95] text-sm" for="remember"
+            >Recordarme</label
+          >
+        </div>
+
+        <button
+          class="w-full px-10 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in"
+          type="submit"
+        >
+          Iniciar Sesión
+        </button>
+
+        <p class="text-right">
+          <a
+            class="text-blue-600 text-sm font-light hover:underline"
+            href="https://www.kindacode.com"
+            >¿Olvido su contraseña?</a
+          >
+        </p>
+      </form>
+    </div>
+
+    <script src="" async defer></script>
+  </body>
+</html>
