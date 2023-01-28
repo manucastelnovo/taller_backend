@@ -4,8 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
-# with app.app_context():
-#     db.create_all()
+
 
 
 
@@ -25,6 +24,9 @@ class User(db.Model):
 #     description = db.Column(db.String(180))
 #     is_completed = db.Column(db.Boolean)
 #     user_id = db.Column(db.Integer, db.ForeingKey('user.id'))
+    
+#     def __repr__(self):
+#         return '<todo %r>' % self.todo
 
 
 @app.route('/', methods=['GET'])
