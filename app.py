@@ -63,7 +63,7 @@ def register():
         print('comitee la puta madre')
         # return redirect(url_for('login'))
         return redirect(url_for('login'))
-    return render_template('index.html',form=form)
+    return render_template('register.html',form=form)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
