@@ -61,7 +61,6 @@ def register():
         # aca
         db.session.commit()
         print('comitee la puta madre')
-        # return redirect(url_for('login'))
         return redirect(url_for('login'))
     return render_template('register.html',form=form)
 
@@ -75,11 +74,50 @@ def login():
             print("entre en el if")
             login_user(user)
             # return redirect(url_for('user'))
-            return 'PUTOOOO'
+            return redirect(url_for('todo'))
 
         return '<h1>Invalid username or passord</h1>'
 
     return render_template('login.html', form=form)
+
+@app.route('/todo', methods=['POST','GET'])
+@login_required
+def todo():
+    todos =Todo.query.filter_by(user_id=current_user.id)
+    if request.method == 'POST':
+        print(request.form['description'])
+        todo = Todo(
+            description=request.form['description'],
+            is_completed=False,
+            user_id=current_user.id
+        )
+        db.session.add(todo)
+        db.session.commit()
+        return redirect(url_for('todo'))
+    
+    return render_template('index.html', todos=todos)
+
+@app.route('/update/<int:todo_id>')
+@login_required
+def update_todo(todo_id):
+    todo_to_be_updated = Todo.query.filter_by(id=todo_id).first()
+    todo_to_be_updated.is_completed = not todo_to_be_updated.is_completed
+    db.session.commit()
+    return redirect(url_for('todo'))
+
+@app.route('/delete/<int:todo_id>')
+@login_required
+def delete_todo(todo_id):
+    todo_to_be_deleted = Todo.query.filter_by(id=todo_id).first()
+    db.session.delete(todo_to_be_deleted)
+    db.session.commit()
+    return redirect(url_for('todo'))
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('register'))
     
 
 
