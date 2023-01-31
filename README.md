@@ -16,10 +16,10 @@
 
 ## Instalar sqlalchemy
 
-```pipenv install Flask-SQLAlchemy ```
+```pip install Flask-SQLAlchemy ```
 
 ## Instalar flask wtf (crear formularios rapidamente)
 
-```pipenv install flask_wtf ```
+```pip install flask_wtf ```
 
 
