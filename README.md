@@ -1,26 +1,25 @@
-# Taller de Flask SQLAlchemy & WTForms
-![Flask](https://miro.medium.com/max/1198/1*80vkyHOABsohPadzQjfEbQ.png)
+# Alchemy of caos
+![](https://github.com/manucastelnovo/taller_backend/blob/manuc_rama/alchemy.png)  ![](https://github.com/manucastelnovo/taller_backend/blob/manuc_rama/flask_sql.png)
 
-1. Creamos un entorno virtual con `python3 -m venv venv`
 
-   -Crea una carpeta que contendra el entorno virtual
-   -Luego activaremos el entorno con (en linux) `venv/bin/activate`
+## Crear entorno virtual
 
-2. Instalamos las dependencias!
+``` python3 -m venv venv ```
+ 
+## Activar entorno virtual
 
-   -Instalamos flask `pip install flask`
-   -Luego el wtforms `pip install flask_wtf`
-   -Por ultimo `pip install flask_sqlalchemy`
+``` source venv/bin/activate ```
 
-3. Creacion de tablas
+## Instalar flask
 
-   -Utilizamos la consola python flask proveida por la libreria de Flask `flask shell`
-   -Corremos el comando de creacion de tablas `db.create_all()`
-   -Cerramos la consola con `quit()`
+```pip install flask```
 
-4. Corramos el proyecto!
+## Instalar sqlalchemy
 
-   -Sin miedo mandale un `flask run`
-   
----
-# Have fun!
+```pipenv install Flask-SQLAlchemy ```
+
+## Instalar flask wtf (crear formularios rapidamente)
+
+```pipenv install flask_wtf ```
+
+
