@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, EmailField, PasswordField, SubmitField
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_required, login_user, current_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
 
@@ -56,7 +57,8 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
-        new_user = User(name=form.username.data, email=form.email.data, password=form.password.data)
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
+        new_user = User(name=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
         # aca
         db.session.commit()
@@ -72,9 +74,11 @@ def login():
         print(user)
         if user:
             print("entre en el if")
-            login_user(user)
-            # return redirect(url_for('user'))
-            return redirect(url_for('todo'))
+            hashed_pass = check_password_hash(user.password, form.password.data)
+            if hashed_pass:
+                login_user(user)
+                # return redirect(url_for('user'))
+                return redirect(url_for('todo'))
 
         return '<h1>Invalid username or passord</h1>'
 
