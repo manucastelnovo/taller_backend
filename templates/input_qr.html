@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de QR</title>
+</head>
+<body>
+    <h1>Generador de QR</h1>
+
+    <form action="/generate_qr" method="post">
+        <label for="data">Datos:</label>
+        <input type="text" name="data" required>
+        <label for="num_qr">Número de QRs:</label>
+        <input type="number" name="num_qr" value="1" min="1">
+        <button type="submit">Generar y Descargar QR</button>
+    </form>
+
+    {% if qr_code %}
+        <h2>QR Codes generados para: {{ data }}</h2>
+        <a href="{{ qr_code }}" download>Descargar ZIP</a>
+    {% endif %}
+</body>
+</html>
